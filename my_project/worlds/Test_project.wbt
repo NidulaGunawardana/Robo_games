@@ -1,0 +1,52 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.2610499663192462 0.2311741602078455 0.9372360549706342 1.7560989479984055
+  position 0.33818752083768017 -1.6150565045692946 1.1298635798588237
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Solid {
+  translation 0 0 0.0491781593618209
+  children [
+    DEF Ball Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        roughness 1
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.05
+      }
+    }
+  ]
+  boundingObject USE Ball
+  physics Physics {
+  }
+  linearVelocity 0 0 6.334126659260806e-17
+}
+E-puck {
+  hidden position_0_0 21.016030099979957
+  hidden position_0_1 27.379834533560114
+  hidden linearVelocity_0 -0.034778648894633814 0.044231880745301294 3.34580781213373e-08
+  hidden angularVelocity_0 -0.0005352184763260199 -0.0004260764524547291 0.08874608113651909
+  hidden rotation_1 0 -1 0 4.116711128738388
+  hidden linearVelocity_1 -0.033354932827906573 0.04242085851429974 4.1715416898927955e-09
+  hidden angularVelocity_1 -2.112425474056721 -1.6610355456492303 0.09047657223114712
+  hidden rotation_2 0 1 0 2.2470933048417683
+  hidden linearVelocity_2 -0.0362071812683759 0.0460480751301646 -3.686469085529966e-09
+  hidden angularVelocity_2 -2.310927742176485 -1.8169967957563657 0.0907455233715361
+  translation 0.3808820466330369 0.24011429512675983 -6.431155718931471e-05
+  rotation -0.00030339188775993487 0.0002176047335910013 0.9999999303007688 2.2387341893581736
+}

@@ -1,0 +1,482 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position 5.271930929097704e-06 5.271945836892271e-06 10.742691720423494
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 6 4
+  floorAppearance PBRAppearance {
+    baseColor 0.313726 0.619608 0.184314
+    metalness 0
+  }
+}
+DEF BALL_AREA Pose {
+  translation -1.8 -8.44714e-06 0.001
+  rotation 0 0 1 0.785403
+  children [
+    Shape {
+      appearance PBRAppearance {
+        metalness 0
+      }
+      geometry Plane {
+        size 0.85 0.85
+      }
+    }
+  ]
+}
+DEF START_AREA_E Pose {
+  translation 0 -1.55 0.0015
+  rotation 0 0 -1 -5.307179586466759e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 0.333333 1
+        metalness 0
+      }
+      geometry Plane {
+        size 0.9 0.9
+      }
+    }
+  ]
+}
+DEF START_AREA_B Pose {
+  translation 0 -1.55 0.002
+  rotation 0 0 -1 -5.307179586466759e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0 1 1
+        metalness 0
+      }
+      geometry Plane {
+        size 0.7 0.7
+      }
+    }
+  ]
+}
+DEF TOWER_AREA Pose {
+  translation 1.25 -3.39657e-06 0.001
+  rotation 0 0 -1 -5.307179586466759e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.996078 0.819608 0.254902
+        metalness 0
+      }
+      geometry Plane {
+        size 3.5 4
+      }
+    }
+  ]
+}
+DEF TOWERS Group {
+  children [
+    Solid {
+      translation 2.69 0 0
+      children [
+        DEF TOWER Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "Tower.obj"
+            ]
+          }
+        }
+      ]
+      boundingObject USE TOWER
+      locked TRUE
+    }
+    Solid {
+      translation 2.69 -0.75 0
+      children [
+        DEF TOWER Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "Tower.obj"
+            ]
+          }
+        }
+      ]
+      name "solid(3)"
+      boundingObject USE TOWER
+    }
+    Solid {
+      translation 2.69 -1.5 0
+      children [
+        DEF TOWER Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "Tower.obj"
+            ]
+          }
+        }
+      ]
+      name "solid(4)"
+      boundingObject USE TOWER
+      locked TRUE
+    }
+    Solid {
+      translation 2.69 0.75 0
+      children [
+        DEF TOWER Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "Tower.obj"
+            ]
+          }
+        }
+      ]
+      name "solid(1)"
+      boundingObject USE TOWER
+      locked TRUE
+    }
+    Solid {
+      translation 2.69 1.5 0
+      children [
+        DEF TOWER Shape {
+          appearance PBRAppearance {
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "Tower.obj"
+            ]
+          }
+        }
+      ]
+      name "solid(2)"
+      boundingObject USE TOWER
+      locked TRUE
+    }
+  ]
+}
+DEF BALLS Group {
+  children [
+    Solid {
+      translation -2.25586 -5.89673e-08 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(5)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -2.11446 -0.141421 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF RED_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.956863 0.211765 0.298039
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(9)"
+      boundingObject USE RED_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.97306 -0.282841 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(16)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.83166 -0.424261 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(20)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -2.11446 0.141421 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF RED_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.956863 0.211765 0.298039
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(6)"
+      boundingObject USE RED_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.97306 -4.10327e-08 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(10)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.83166 -0.141421 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF RED_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.956863 0.211765 0.298039
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(15)"
+      boundingObject USE RED_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.69026 -0.282841 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(19)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.97306 0.282841 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(7)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.83166 0.141421 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF RED_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.956863 0.211765 0.298039
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(11)"
+      boundingObject USE RED_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.69026 -4.61033e-07 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(14)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.54886 -0.141422 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF RED_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.956863 0.211765 0.298039
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(18)"
+      boundingObject USE RED_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.83166 0.424261 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(8)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.69025 0.282841 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(12)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.54885 0.141421 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF RED_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.956863 0.211765 0.298039
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(13)"
+      boundingObject USE RED_BALL
+      physics Physics {
+      }
+    }
+    Solid {
+      translation -1.40745 -3.38967e-07 0.095
+      rotation 0 0 1 0.785398
+      children [
+        DEF BLUE_BALL Shape {
+          appearance PBRAppearance {
+            baseColor 0.188235 0.498039 0.886275
+            metalness 0
+          }
+          geometry Sphere {
+            radius 0.095
+          }
+        }
+      ]
+      name "solid(17)"
+      boundingObject USE BLUE_BALL
+      physics Physics {
+      }
+    }
+  ]
+}
