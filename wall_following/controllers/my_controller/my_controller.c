@@ -19,7 +19,7 @@
  * You may want to add macros here.
  */
 #define TIME_STEP 64
-
+#define MAX_SPEED 6.28
 /*
  * This is the main program.
  * The arguments of the main function can be specified by the
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
   for (int ind = 0; ind < 8; ++ind)
   {
     sprintf(prox_sensor_name, "ps%d", ind);
-    prox_sensor[ind] = wb_robot_get_device(prox_sensor_name);
+    prox_sensors[ind] = wb_robot_get_device(prox_sensor_name);
     wb_distance_sensor_enable(prox_sensors[ind], TIME_STEP);
   }
 
@@ -58,6 +58,9 @@ int main(int argc, char **argv)
    * Perform simulation steps of TIME_STEP milliseconds
    * and leave the loop when the simulation is over
    */
+
+  double left_speed = MAX_SPEED;
+  double right_speed = MAX_SPEED;
   while (wb_robot_step(TIME_STEP) != -1)
   {
     /*
@@ -69,11 +72,36 @@ int main(int argc, char **argv)
     bool left_corner_wall = wb_distance_sensor_get_value(prox_sensors[6]) > 80;
     bool front_wall = wb_distance_sensor_get_value(prox_sensors[7]) > 80;
     /* Process sensor data here */
+    if (front_wall == true)
+    {
+      left_speed = MAX_SPEED;
+      right_speed = MAX_SPEED;
+    }
+    else
+    {
+      if (left_wall == true)
+      {
+        left_speed = MAX_SPEED;
+        right_speed = MAX_SPEED;
+      }
+      else
+      {
 
+        left_speed = MAX_SPEED / 8;
+        right_speed = MAX_SPEED;
+      }
+      if(left_corner_wall == true){
+      left_speed = MAX_SPEED;
+      right_speed = MAX_SPEED/8;
+      }
+    }
     /*
      * Enter here functions to send actuator commands, like:
      * wb_motor_set_position(my_actuator, 10.0);
      */
+
+    wb_motor_set_velocity(left_motor,left_speed);
+    wb_motor_set_velocity(right_motor,right_speed);
   };
 
   /* Enter your cleanup code here */
