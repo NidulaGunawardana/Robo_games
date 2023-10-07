@@ -7,8 +7,8 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/project
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.25293801468544747 -0.16767832184750514 0.9528411940661408 4.15463083065427
-  position 0.6811297016357133 -0.6031623503780177 0.9484717620289328
+  orientation 0.30748789137486865 0.43368005253576525 -0.8469786353211118 1.485725501463415
+  position -0.4657315730560874 0.48232802034490896 1.9298344312595437
 }
 TexturedBackground {
 }
@@ -175,7 +175,7 @@ DEF TOWERS Group {
 DEF BALLS Group {
   children [
     Solid {
-      translation -2.25586 -5.89673e-08 0.08936378481833442
+      translation -2.25586 -5.89673e-08 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -194,7 +194,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -2.11446 -0.141421 0.08936378481833442
+      translation -2.11446 -0.141421 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF RED_BALL Shape {
@@ -213,7 +213,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.97306 -0.282841 0.08936378481833442
+      translation -1.97306 -0.282841 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -232,7 +232,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.83166 -0.424261 0.08936378481833442
+      translation -1.83166 -0.424261 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -251,7 +251,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -2.11446 0.141421 0.08936378481833442
+      translation -2.11446 0.141421 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF RED_BALL Shape {
@@ -270,7 +270,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.97306 -4.10327e-08 0.08936378481833442
+      translation -1.97306 -4.10327e-08 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -289,7 +289,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.83166 -0.141421 0.08936378481833442
+      translation -1.83166 -0.141421 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF RED_BALL Shape {
@@ -308,7 +308,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.69026 -0.282841 0.08936378481833442
+      translation -1.69026 -0.282841 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -327,7 +327,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.97306 0.282841 0.08936378481833442
+      translation -1.97306 0.282841 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -346,7 +346,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.83166 0.141421 0.08936378481833442
+      translation -1.83166 0.141421 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF RED_BALL Shape {
@@ -365,7 +365,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.69026 -4.61033e-07 0.08936378481833442
+      translation -1.69026 -4.61033e-07 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -384,7 +384,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.54886 -0.141422 0.08936378481833442
+      translation -1.54886 -0.141422 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF RED_BALL Shape {
@@ -403,7 +403,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.83166 0.424261 0.08936378481833442
+      translation -1.83166 0.424261 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -422,7 +422,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.69025 0.282841 0.08936378481833442
+      translation -1.69025 0.282841 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -441,7 +441,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.54885 0.141421 0.08936378481833442
+      translation -1.54885 0.141421 0.08936299506325428
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF RED_BALL Shape {
@@ -460,7 +460,7 @@ DEF BALLS Group {
       }
     }
     Solid {
-      translation -1.40745 -3.38967e-07 0.08936304464782528
+      translation -1.40745 -3.38967e-07 0.08936299506276257
       rotation 0 0 0.9999999999999999 0.7853979999999999
       children [
         DEF BLUE_BALL Shape {
@@ -481,8 +481,8 @@ DEF BALLS Group {
   ]
 }
 Robot {
-  translation -3.3797244124088284e-07 -1.7506267609541821 0.09653400259678843
-  rotation 0.9999998474298614 -0.0005523944975205329 7.569486903264181e-07 0.006292770387888907
+  translation 1.7728220851499906e-06 -1.660249140825997 0.0964348192591743
+  rotation 0.9999943867045561 0.003345405406001916 0.00018660666725641656 0.005622810009006322
   children [
     DEF body Pose {
       children [
@@ -527,7 +527,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 7.372562187300579e-09
+        position -1.2016507787780535
         anchor -0.226 0.32 -0.025
       }
       device [
@@ -537,7 +537,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.2255 0.32 -0.025
-        rotation 3.6862686030723828e-09 -1 -3.6862810936502892e-09 1.570799693899574
+        rotation -0.4921260075599632 -0.7180684886666079 0.4921276646025345 1.896096209391916
         children [
           DEF wheel Shape {
             appearance PBRAppearance {
@@ -558,7 +558,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position 5.5675575555640885e-09
+        position -1.20165085411896
         anchor 0.226 0.32 -0.025
       }
       device [
@@ -568,7 +568,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.226 0.32 -0.025
-        rotation 2.7837693260205916e-09 -1 -2.78377877778444e-09 1.5707996938995725
+        rotation -0.4921260280586823 -0.7180684605690455 0.49212768510132227 1.8960962464691358
         children [
           DEF wheel2 Shape {
             appearance PBRAppearance {
@@ -589,7 +589,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -5.799357652110972e-09
+        position -1.2016478235545196
         anchor 0.226 -0.075 -0.025
       }
       device [
@@ -599,7 +599,7 @@ Robot {
       ]
       endPoint Solid {
         translation 0.226 -0.075 -0.025
-        rotation -2.901118214581501e-09 -1 2.899678747534369e-09 1.5702999999999971
+        rotation -0.49231157146264753 -0.7179826627258726 0.49206728465632055 1.8957359617731653
         children [
           USE wheel2
         ]
@@ -610,7 +610,7 @@ Robot {
     }
     HingeJoint {
       jointParameters HingeJointParameters {
-        position -5.773308520758275e-09
+        position -1.2016477492758075
         anchor -0.226 -0.075 -0.025
       }
       device [
@@ -620,7 +620,7 @@ Robot {
       ]
       endPoint Solid {
         translation -0.226 -0.075 -0.025
-        rotation -2.8880871828576447e-09 -1 2.8866541818574214e-09 1.5702999999999987
+        rotation -0.49231155125011766 -0.717982690431069 0.49206726445382104 1.8957359252048975
         children [
           USE wheel
         ]
@@ -630,7 +630,7 @@ Robot {
       }
     }
     Pose {
-      translation 0.01 0.12 0.23
+      translation 0.01 0.12 0.325
       children [
         Shape {
           appearance PBRAppearance {
@@ -638,13 +638,41 @@ Robot {
             metalness 0
           }
           geometry Box {
-            size 0.07 0.02 0.55
+            size 0.07 0.02 0.75
           }
+        }
+        Solid {
+          translation 0 0.19 0.38
+          children [
+            Camera {
+              translation 0 0.2 0
+              rotation -0.6947441893619337 -0.6947491893632964 0.18615605073935165 -2.773485307179586
+            }
+            DEF camera_mount Shape {
+              appearance PBRAppearance {
+                roughness 1
+                metalness 0
+              }
+              geometry Box {
+                size 0.07 0.4 0.02
+              }
+            }
+          ]
+          name "solid(5)"
+          boundingObject USE camera_mount
+          physics Physics {
+          }
+        }
+        DistanceSensor {
+          translation 0 0 -0.34
+          rotation 0 0 1 1.5708
+          name "distance sensor in body"
         }
       ]
     }
     SliderJoint {
       jointParameters JointParameters {
+        position -3.38319e-06
         minStop -0.05
         maxStop 0.55
       }
@@ -655,7 +683,7 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation 0 0.134 -0.044
+        translation 0 0.134 -0.044003383189999995
         children [
           DEF arm_h Shape {
             appearance PBRAppearance {
@@ -668,6 +696,7 @@ Robot {
           }
           SliderJoint {
             jointParameters JointParameters {
+              position 1.6014139221449065e-11
               axis 1 0 0
             }
             device [
@@ -677,7 +706,7 @@ Robot {
               }
             ]
             endPoint Solid {
-              translation 0.1714999977115771 0.1229985098725328 -8.636324232010051e-05
+              translation 0.17149999772759122 0.1229985098725328 -8.636324232010051e-05
               rotation -0.5989062939750435 0.8007919190861806 0.006599497204388628 5.492430793445233e-06
               children [
                 DEF arm_r Shape {
@@ -707,7 +736,7 @@ Robot {
                   }
                 }
                 Solid {
-                  translation -0.024 0.12 0
+                  translation -0.015 0.12 0
                   children [
                     DEF arm_front Shape {
                       appearance PBRAppearance {
@@ -715,7 +744,7 @@ Robot {
                         metalness 0
                       }
                       geometry Box {
-                        size 0.05 0.002 0.1
+                        size 0.03 0.001 0.1
                       }
                     }
                   ]
@@ -732,7 +761,9 @@ Robot {
           }
           SliderJoint {
             jointParameters JointParameters {
+              position 1.601405597120008e-11
               axis 1 0 0
+              maxStop -1
             }
             device [
               LinearMotor {
@@ -741,7 +772,7 @@ Robot {
               }
             ]
             endPoint Solid {
-              translation -0.1710000005866399 0.12299992305086294 -5.1887132048816786e-05
+              translation -0.17100000057062584 0.12299992305086294 -5.1887132048816786e-05
               rotation -0.6388489785676387 -0.7688693381051885 -0.026681894699849877 1.9068196117125292e-06
               children [
                 USE arm_r
@@ -755,7 +786,7 @@ Robot {
                   }
                 }
                 Solid {
-                  translation 0.024 0.119 0
+                  translation 0.015 0.12 0
                   children [
                     USE arm_front
                   ]
@@ -770,6 +801,11 @@ Robot {
               physics Physics {
               }
             }
+          }
+          DistanceSensor {
+            translation -4.89665e-14 6.74634e-14 0
+            rotation 0 0 1 1.5708
+            name "distance sensor in arm"
           }
         ]
         name "solid(4)"

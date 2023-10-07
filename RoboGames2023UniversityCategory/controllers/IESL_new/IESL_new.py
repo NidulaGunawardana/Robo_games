@@ -10,11 +10,11 @@ if __name__ == "__main__":
     # create the Robot instance.
     robot = Robot()
     kb = Keyboard()
-    
+
     # get the time step of the current world.
     timestep = 64
-    MAX_SPEED = -6.28
-    
+    MAX_SPEED = -10.0
+
     # You should insert a getDevice-like function in order to get the
     # instance of a device of the robot. Something like:
     #  motor = robot.getDevice('motorname')
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     a_h = robot.getDevice('virtical_arm')
     a_h.setPosition(0.0)
     l_p = 0.0
-    
+
     h_r = robot.getDevice('horizontal_right')
     h_r.setPosition(0.0)
     h_r_p = 0.0
@@ -38,13 +38,13 @@ if __name__ == "__main__":
 
     f_l.setPosition(float('inf'))
     f_l.setVelocity(0.0)
-    
+
     f_r.setPosition(float('inf'))
     f_r.setVelocity(0.0)
-    
+
     b_l.setPosition(float('inf'))
     b_l.setVelocity(0.0)
-    
+
     b_r.setPosition(float('inf'))
     b_r.setVelocity(0.0)
     # Main loop:
@@ -53,18 +53,16 @@ if __name__ == "__main__":
         # Read the sensors:
         # Enter here functions to read sensor data, like:
         #  val = ds.getValue()
-    
+
         # Process sensor data here.
-    
+
         # Enter here functions to send actuator commands, like:
         #  motor.setPosition(10.0)
-        
-        
-        
+
         l_s = 0.0
         r_s = 0.0
         key = kb.getKey()
-        if(key == 315):
+        if (key == 315):
             r_s = MAX_SPEED
             l_s = MAX_SPEED
         elif key == 317:
@@ -79,35 +77,42 @@ if __name__ == "__main__":
         else:
             r_s = 0.0
             l_s = 0.0
-        
 
-        if(key == 87):
-            l_p += 0.005
+        if (key == 87):
+            l_p += 0.01
+            if l_p >= 0.55:
+                l_p = 0.55
         elif key == 83:
-            l_p -= 0.005
+            l_p -= 0.01
+            if l_p <= -0.05:
+                l_p = -0.05
         elif key == 65:
             h_r_p -= 0.005
             h_l_p += 0.005
-            
+            if h_r_p <= -0.115 or h_l_p >= 0.115:
+                h_r_p = -0.115
+                h_l_p = 0.115
+
         elif key == 68:
             h_r_p += 0.005
             h_l_p -= 0.005
-        
+            if h_r_p >= 0.0 or h_l_p <= 0.0:
+                h_r_p = 0.0
+                h_l_p = 0.0
         else:
-            l_p+=0
-            h_r_p +=0
+            l_p += 0
+            h_r_p += 0
             h_l_p += 0
-        
+
         a_h.setPosition(l_p)
         h_r.setPosition(h_r_p)
         h_l.setPosition(h_l_p)
-        
+
         f_l.setVelocity(l_s)
         f_r.setVelocity(r_s)
         b_l.setVelocity(l_s)
         b_r.setVelocity(r_s)
-        
+
         pass
-    
+
     # Enter here exit cleanup code.
-    
