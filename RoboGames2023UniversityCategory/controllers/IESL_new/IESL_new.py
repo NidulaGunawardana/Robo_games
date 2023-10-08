@@ -4,9 +4,11 @@
 #  from controller import Robot, Motor, DistanceSensor
 from controller import Robot
 from controller import Keyboard
+import time
 
 if __name__ == "__main__":
-
+    
+    
     # create the Robot instance.
     robot = Robot()
     kb = Keyboard()
@@ -47,6 +49,43 @@ if __name__ == "__main__":
 
     b_r.setPosition(float('inf'))
     b_r.setVelocity(0.0)
+    
+    def grab():
+        while True:
+            global h_r_p
+            global h_l_p
+            h_r_p -= 0.005
+            h_l_p += 0.005
+            if h_r_p <= -0.115 or h_l_p >= 0.115:
+                break
+            h_r.setPosition(h_r_p)
+            h_l.setPosition(h_l_p)
+            #time.sleep(0.1)
+    
+        while True:
+            global l_p 
+            l_p += 0.001
+            if l_p >= 0.55:
+                break
+            a_h.setPosition(l_p)
+            #time.sleep(0.1)
+        
+    def drop():
+        while True:
+            global h_r_p
+            global h_l_p
+            h_r_p += 0.005
+            h_l_p -= 0.005
+            if h_r_p >= 0.0 or h_l_p <= 0.0:
+                break
+            h_r.setPosition(h_r_p)
+            h_l.setPosition(h_l_p)
+        while True:
+            global l_p
+            l_p -= 0.01
+            if l_p < 0.03:
+                break
+            a_h.setPosition(l_p)
     # Main loop:
     # - perform simulation steps until Webots is stopping the controller
     while robot.step(timestep) != -1:
@@ -79,13 +118,9 @@ if __name__ == "__main__":
             l_s = 0.0
 
         if (key == 87):
-            l_p += 0.01
-            if l_p >= 0.55:
-                l_p = 0.55
+            grab()
         elif key == 83:
-            l_p -= 0.01
-            if l_p <= -0.05:
-                l_p = -0.05
+            drop()
         elif key == 65:
             h_r_p -= 0.005
             h_l_p += 0.005
@@ -103,10 +138,12 @@ if __name__ == "__main__":
             l_p += 0
             h_r_p += 0
             h_l_p += 0
+            
+        
 
-        a_h.setPosition(l_p)
-        h_r.setPosition(h_r_p)
-        h_l.setPosition(h_l_p)
+        
+        #h_r.setPosition(h_r_p)
+        #h_l.setPosition(h_l_p)
 
         f_l.setVelocity(l_s)
         f_r.setVelocity(r_s)
