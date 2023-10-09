@@ -8,6 +8,6 @@ centralWidgetVisible: 1
 projectionMode: PERSPECTIVE
 orthographicViewHeight: 2.59374
 textFiles: 0 "controllers/IESL_new/IESL_new.py"
-globalOptionalRendering: CameraFrustums::DistanceSensorRays
+globalOptionalRendering: CameraFrustums::DistanceSensorRays::LightSensorRays::LidarRaysPaths
 consoles: Console:All:All
 renderingDevicePerspectives: robot:camera;1;3.9375;0.0399373;0.0437236
