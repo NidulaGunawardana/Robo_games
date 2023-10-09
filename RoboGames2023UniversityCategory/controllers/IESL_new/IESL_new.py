@@ -51,9 +51,11 @@ if __name__ == "__main__":
     b_r.setVelocity(0.0)
     
     def grab():
-        while True:
-            global h_r_p
-            global h_l_p
+        global h_r_p
+        global h_l_p
+        global l_p
+        
+        for _ in range(100):  # Adjust the range as needed
             h_r_p -= 0.005
             h_l_p += 0.005
             if h_r_p <= -0.115 or h_l_p >= 0.115:
@@ -62,30 +64,34 @@ if __name__ == "__main__":
             h_l.setPosition(h_l_p)
             #time.sleep(0.1)
     
-        while True:
-            global l_p 
+        for _ in range(550):  # Adjust the range as needed
             l_p += 0.001
             if l_p >= 0.55:
                 break
             a_h.setPosition(l_p)
             #time.sleep(0.1)
-        
+
     def drop():
-        while True:
-            global h_r_p
-            global h_l_p
+        global h_r_p
+        global h_l_p
+        
+        
+        for _ in range(100):  # Adjust the range as needed
             h_r_p += 0.005
             h_l_p -= 0.005
             if h_r_p >= 0.0 or h_l_p <= 0.0:
                 break
             h_r.setPosition(h_r_p)
             h_l.setPosition(h_l_p)
-        while True:
-            global l_p
+    
+    def down():
+        global l_p
+        for _ in range(220):  # Adjust the range as needed
             l_p -= 0.01
             if l_p < 0.03:
                 break
             a_h.setPosition(l_p)
+
     # Main loop:
     # - perform simulation steps until Webots is stopping the controller
     while robot.step(timestep) != -1:
@@ -122,11 +128,7 @@ if __name__ == "__main__":
         elif key == 83:
             drop()
         elif key == 65:
-            h_r_p -= 0.005
-            h_l_p += 0.005
-            if h_r_p <= -0.115 or h_l_p >= 0.115:
-                h_r_p = -0.115
-                h_l_p = 0.115
+            down()
 
         elif key == 68:
             h_r_p += 0.005
