@@ -239,9 +239,9 @@ def grab_ball(): # Grabbing the ball
 
     ball_state = False # Ball hasn't grabbed untill now
 
-    depth, frame = get_depth_and_rgb()
     # Capture frame-by-frame
     #ret, frame = cap.read()
+    depth, frame = get_depth_and_rgb()
     #-- Detect keypoints
     keypoints, iv = blob_detect(frame, blue_min, blue_max, blur=3, 
                                 blob_params=None, search_window=window, imshow=False)
@@ -315,8 +315,8 @@ def carry_ball(): # Carrying the ball
             i += 1
         y_co_list.sort(reverse=True)
         pos_most_up = y_co_list[0][1]
-        er_x = pos_ball_list[i][0]
-        er_y = pos_ball_list[i][1]
+        er_x = pos_mat_list[i][0]
+        er_y = pos_mat_list[i][1]
 
         if er_y<0.65: # Grab position needs to be adjusted
             speed_right = 175-(60*er_x)                                                                                  
