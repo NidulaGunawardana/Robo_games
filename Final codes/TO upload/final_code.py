@@ -239,9 +239,9 @@ def grab_ball(): # Grabbing the ball
 
     ball_state = False # Ball hasn't grabbed untill now
 
+    depth, frame = get_depth_and_rgb()
     # Capture frame-by-frame
     #ret, frame = cap.read()
-    depth, frame = get_depth_and_rgb()
     #-- Detect keypoints
     keypoints, iv = blob_detect(frame, blue_min, blue_max, blur=3, 
                                 blob_params=None, search_window=window, imshow=False)
@@ -259,28 +259,31 @@ def grab_ball(): # Grabbing the ball
         x_co_list = []
         y_co_list = []
         i = 0 
-        j = 0
+
         pos_ball_list = get_blob_relative_position(frame, keypoints)
         for pos_ball_l in pos_ball_list:
             x_co_list.append([pos_ball_l[0], i])
-            y_co_list.append([pos_ball_l[1], j])
+            y_co_list.append([pos_ball_l[1], i])
             i += 1
+
         x_co_list.sort(reverse=True)
         y_co_list.sort(reverse=True)
         pos_most_right = x_co_list[0][1]
         pos_most_up = y_co_list[0][1]
 
         if pos_most_up == pos_most_right:
-            pos_most_right = pos_most_right - 1
+            pos_most_right = x_co_list[1][1]
 
-        er_x = pos_ball_list[i][0]
-        er_y = pos_ball_list[i][1]
-
-        if er_y<0.65: # Grab position needs to be adjusted
-            speed_right = 175-(60*er_x)                                                                                  
-            speed_left = 175+(60*er_x)
+        er_x = pos_ball_list[pos_most_right][0]
+        er_y = pos_ball_list[pos_most_right][1]
+        print(er_y)
+        if er_y>-0.65: # Grab position needs to be adjusted
+            speed_right = 125-(50*er_x)                                                                                  
+            speed_left = 125+(50*er_x)
             my_kobuki.move(speed_left,speed_right,0)
         else:
+            my_kobuki.move(125,125,0)
+            time.sleep(0.4)
             ball_state = True
 
     return ball_state
@@ -315,12 +318,12 @@ def carry_ball(): # Carrying the ball
             i += 1
         y_co_list.sort(reverse=True)
         pos_most_up = y_co_list[0][1]
-        er_x = pos_mat_list[i][0]
-        er_y = pos_mat_list[i][1]
+        er_x = pos_mat_list[pos_most_up][0]
+        er_y = pos_mat_list[pos_most_up][1]
 
-        if er_y<0.65: # Grab position needs to be adjusted
-            speed_right = 175-(60*er_x)                                                                                  
-            speed_left = 175+(60*er_x)
+        if er_y>-0.65: # Grab position needs to be adjusted
+            speed_right = 125-(50*er_x)                                                                                  
+            speed_left = 125+(50*er_x)
             my_kobuki.move(speed_left,speed_right,0)
         else:
             mat_state = True
