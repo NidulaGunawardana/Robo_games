@@ -260,31 +260,36 @@ def grab_ball(): # Grabbing the ball
         y_co_list = []
         i = 0 
 
-        pos_ball_list = get_blob_relative_position(frame, keypoints)
-        for pos_ball_l in pos_ball_list:
-            x_co_list.append([pos_ball_l[0], i])
-            y_co_list.append([pos_ball_l[1], i])
-            i += 1
+        pos_ball_list = get_blob_relative_position(frame, keypoints[0])
+        # for pos_ball_l in pos_ball_list:
+        #     x_co_list.append([pos_ball_l[0], i])
+        #     y_co_list.append([pos_ball_l[1], i])
+        #     i += 1
 
-        x_co_list.sort(reverse=True)
-        y_co_list.sort(reverse=True)
-        pos_most_right = x_co_list[0][1]
-        pos_most_up = y_co_list[0][1]
+        # x_co_list.sort(reverse=True)
+        # y_co_list.sort(reverse=True)
+        # pos_most_right = x_co_list[0][1]
+        # pos_most_up = y_co_list[0][1]
 
-        if pos_most_up == pos_most_right:
-            pos_most_right = x_co_list[1][1]
+        # if pos_most_up == pos_most_right:
+        #     pos_most_right = x_co_list[1][1]
 
-        er_x = pos_ball_list[pos_most_right][0]
-        er_y = pos_ball_list[pos_most_right][1]
-        print(er_y)
-        if er_y>-0.65: # Grab position needs to be adjusted
-            speed_right = 125-(50*er_x)                                                                                  
-            speed_left = 125+(50*er_x)
-            my_kobuki.move(speed_left,speed_right,0)
-        else:
-            my_kobuki.move(125,125,0)
-            time.sleep(0.4)
+        er_x = pos_ball_list[0]
+        er_y = pos_ball_list[1]
+        # er_y = pos_ball_list[pos_most_right][1]
+        # print(er_y)
+        speed_right = 125-(50*er_x)                                                                                  
+        speed_left = 125+(50*er_x)
+        my_kobuki.move(speed_left,speed_right,0)
+        # if er_y>-0.65: # Grab position needs to be adjusted
+           
+        # else:
+        #     my_kobuki.move(125,125,0)
+        #     time.sleep(0.4)
+        #     ball_state = True
+        if er_y<-0.65:
             ball_state = True
+            print('Ball grabbed')
 
     return ball_state
 
@@ -312,62 +317,66 @@ def carry_ball(): # Carrying the ball
         y_co_list = []
         i = 0 
 
-        pos_mat_list = get_blob_relative_position(frame, keypoints) 
-        for pos_mat_l in pos_mat_list:
-            y_co_list.append([pos_mat_l[1], i])
-            i += 1
-        y_co_list.sort(reverse=True)
-        pos_most_up = y_co_list[0][1]
-        er_x = pos_mat_list[pos_most_up][0]
-        er_y = pos_mat_list[pos_most_up][1]
+        pos_ball_list = get_blob_relative_position(frame, keypoints[0])
+        # for pos_ball_l in pos_ball_list:
+        #     x_co_list.append([pos_ball_l[0], i])
+        #     y_co_list.append([pos_ball_l[1], i])
+        #     i += 1
 
-        if er_y>-0.65: # Grab position needs to be adjusted
-            speed_right = 125-(50*er_x)                                                                                  
-            speed_left = 125+(50*er_x)
-            my_kobuki.move(speed_left,speed_right,0)
-        else:
-            mat_state = True
-            push()
+        # x_co_list.sort(reverse=True)
+        # y_co_list.sort(reverse=True)
+        # pos_most_right = x_co_list[0][1]
+        # pos_most_up = y_co_list[0][1]
 
-    else: # search 
-        my_kobuki.move(100,100,0)
-        time.sleep(0.4)
-        my_kobuki.move(0,0,0)
-        # Capture frame-by-frame
+        # if pos_most_up == pos_most_right:
+        #     pos_most_right = x_co_list[1][1]
 
-        depth, frame = get_depth_and_rgb()
-        #ret, frame = cap.read()
-        #-- Detect keypoints
-        keypoints, iv = blob_detect(frame, blue_min, blue_max, blur=3, 
-                                    blob_params=None, search_window=window_mat, imshow=False)
+        er_x = pos_ball_list[0]
+        er_y = pos_ball_list[1]
+        # er_y = pos_ball_list[pos_most_right][1]
+        # print(er_y)
+        speed_right = 125-(50*er_x)                                                                                  
+        speed_left = 125+(50*er_x)
+        my_kobuki.move(speed_left,speed_right,0)
+        # if er_y>-0.65: # Grab position needs to be adjusted
+
+        # depth, frame = get_depth_and_rgb()
+        # #ret, frame = cap.read()
+        # #-- Detect keypoints
+        # keypoints, iv = blob_detect(frame, blue_min, blue_max, blur=3, 
+        #                             blob_params=None, search_window=window_mat, imshow=False)
         
-        #-- Draw search window
-        frame  = draw_window(frame, window)
+        # #-- Draw search window
+        # frame  = draw_window(frame, window)
 
-        #-- click ENTER on the image window to proceed
-        draw_keypoints(frame, keypoints, imshow=True)
-        #draw_keypoints(iv, keypoints, imshow=True)
-        while keypoints==False:
-            my_kobuki.move(60,-60,0)
-            time.sleep(0.1)
-            # Capture frame-by-frame
+        # #-- click ENTER on the image window to proceed
+        # draw_keypoints(frame, keypoints, imshow=True)
+        # #draw_keypoints(iv, keypoints, imshow=True)
+        # while keypoints==False:
+        #     my_kobuki.move(60,-60,0)
+        #     time.sleep(0.1)
+        #     # Capture frame-by-frame
 
-            depth, frame = get_depth_and_rgb()
-            #ret, frame = cap.read()
-            #-- Detect keypoints
-            keypoints, iv = blob_detect(frame, blue_min, blue_max, blur=3, 
-                                        blob_params=None, search_window=window_mat, imshow=False)
+        #     depth, frame = get_depth_and_rgb()
+        #     #ret, frame = cap.read()
+        #     #-- Detect keypoints
+        #     keypoints, iv = blob_detect(frame, blue_min, blue_max, blur=3, 
+        #                                 blob_params=None, search_window=window_mat, imshow=False)
             
-            #-- Draw search window
-            frame  = draw_window(frame, window)
+        #     #-- Draw search window
+        #     frame  = draw_window(frame, window)
 
-            #-- click ENTER on the image window to proceed
-            draw_keypoints(frame, keypoints, imshow=True)
-        my_kobuki.move(0,0,0)
+        #     #-- click ENTER on the image window to proceed
+        #     draw_keypoints(frame, keypoints, imshow=True)
+        # my_kobuki.move(0,0,0)
+        if er_y<-0.65:
+            push()
+            mat_state = True
+            print('Ball released')
     return mat_state
 
 def search(): # resetting and searching for the new ball
-    my_kobuki.move(-100,-100,0)
+    # my_kobuki.move(-100,-100,0)
     time.sleep(1)
     # Capture frame-by-frame
     depth, frame = get_depth_and_rgb()
@@ -408,7 +417,7 @@ if __name__=="__main__":
     blue_max = (255, 255, 255) 
     
     #--- Define area limit [x_min, y_min, x_max, y_max] adimensional (0.0 to 1.0) starting from top left corner
-    window = [0.2, 0.25, 0.75, 1] # Getting the window to fit within the arms
+    window = [0.1, 0.25, 0.9, 1] # Getting the window to fit within the arms
 
     window_mat = [0.1, 0.25, 0.9, 1]
     
@@ -421,13 +430,14 @@ if __name__=="__main__":
         # grab_ball()
         # carry_ball()
 
-        # if grab_ball() == True:
-        #     print("Ball grabbed")
-        #     while True:
-        #         if carry_ball() == True:
-        #             print("Ball released")
-        #             search()
-        #             break
+        if grab_ball() == True:
+           
+            while True:
+                if carry_ball() == True:
+                    
+                    
+                  
+                    break
 
 
         #-- press q to quit
